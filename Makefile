@@ -17,7 +17,7 @@ CSFML = -lcsfml-system -lcsfml-window -lcsfml-network \
 
 CRITERION = -lcriterion
 
-SRC	= 101pong.c \
+SRC	= pong.c \
 
 OBJ	= $(SRC:.c=.o)
 
