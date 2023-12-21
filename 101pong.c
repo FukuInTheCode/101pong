@@ -38,6 +38,8 @@ static int calculate_vector(char **argv)
         atof(argv[6]) - atof(argv[3])
     };
 
+    if (atoi(argv[7]) < 0)
+        return 84;
     printf("The velocity vector of the ball is:\n");
     printf("(%.2lf, %.2lf, %.2lf)\n", velocity.x, velocity.y, velocity.z);
     return calculate_new_pos(argv, &velocity, atoi(argv[7]));
