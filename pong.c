@@ -16,7 +16,7 @@ static int calculate_angle(char **argv, my_vector_t *v)
     printf("The incidence angle is:\n");
     if (pow(v->x * v->x + v->y * v->y + v->z * v->z, 1. / 2.) == 0.)
         return printf("0.00 degrees");
-    printf("%.2lf degrees\n", 180. / PI * fabs(acos(v->z /
+    printf("%.2lf degrees\n", fabs(180. / M_PI * acosf(v->z /
         pow(v->x * v->x + v->y * v->y + v->z * v->z, 1. / 2.)) - 90.));
     return 0;
 }
