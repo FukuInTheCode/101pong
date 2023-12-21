@@ -37,6 +37,4 @@ typedef struct {
     double z;
 } my_vector_t;
 
-
-
 #endif

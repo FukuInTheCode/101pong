@@ -14,8 +14,10 @@ static int calculate_angle(char **argv, my_vector_t *v)
     if ((v->z == 0 || t_needed < 0) && atof(argv[6]) != 0)
         return printf("The ball won’t reach the paddle.\n");
     printf("The incidence angle is:\n");
-    printf("%.2lf degrees", 180. / PI * acosf(v->z /
-        pow(v->x * v->x + v->y * v->y + v->z * v->z, 1. / 2.)) - 90.);
+    if (pow(v->x * v->x + v->y * v->y + v->z * v->z, 1. / 2.) == 0.)
+        return printf("0.00 degrees");
+    printf("%.2lf degrees", 180. / PI * asinf(v->z /
+        pow(v->x * v->x + v->y * v->y + v->z * v->z, 1. / 2.)));
     return 0;
 }
 
