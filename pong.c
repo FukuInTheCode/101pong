@@ -15,7 +15,7 @@ static int calculate_angle(char **argv, my_vector_t *v)
         return printf("The ball won't reach the paddle.\n");
     printf("The incidence angle is:\n");
     if (pow(v->x * v->x + v->y * v->y + v->z * v->z, 1. / 2.) == 0.)
-        return printf("0.00 degrees");
+        return printf("0.00 degrees\n");
     printf("%.2lf degrees\n", fabs(180. / M_PI * acosf(v->z /
         pow(v->x * v->x + v->y * v->y + v->z * v->z, 1. / 2.)) - 90.));
     return 0;

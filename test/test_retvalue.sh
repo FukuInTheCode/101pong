@@ -17,8 +17,8 @@ do
                     do
                         for n in $(seq -$range $range)
                         do
-                            output=$(../101pong $x0 $y0 $z0 $x1 $y1 $z1 $n | tail -1 | grep "-" -c)
-                            if [ $output -eq 1 ]; then
+                            output=$(../101pong $x0 $y0 $z0 $x1 $y1 $z1 $n | tail -0 && echo $?)
+                            if [ $output -eq 84 ]; then
                                 echo "Test failed with arguments: $x0 $y0 $z0 $x1 $y1 $z1 $n"
                             fi
                         done
