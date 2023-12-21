@@ -30,6 +30,31 @@ static int calculate_new_pos(char **argv, my_vector_t *v, int t)
     return 0;
 }
 
+static bool check_arg(char *arg, int j)
+{
+    int i = 0;
+    int has_point = true;
+
+    for (; arg[i] == '-' || arg[i] == '+'; i++);
+    for (; ('0' <= arg[i] && arg[i] <= '9') || (arg[i] == '.' && has_point && j != 7); i++)
+        (arg[i] == '.' && has_point) && (has_point = false);
+    return (strlen(arg) == i);
+}
+
+static bool is_correct(char **argv)
+{
+    bool ret = true;
+
+    if (atoi(argv[7]) < 0)
+        ret = false;
+    for (int j = 1; j <= 7; j++)
+        if (!check_arg(argv[j], j))
+            ret = false;
+    if (atoi(argv[7]) < 0)
+        ret = false;
+    return ret;
+}
+
 static int calculate_vector(char **argv)
 {
     my_vector_t velocity = {
@@ -38,7 +63,7 @@ static int calculate_vector(char **argv)
         atof(argv[6]) - atof(argv[3])
     };
 
-    if (atoi(argv[7]) < 0)
+    if (!is_correct(argv))
         return 84;
     printf("The velocity vector of the ball is:\n");
     printf("(%.2lf, %.2lf, %.2lf)\n", velocity.x, velocity.y, velocity.z);
@@ -62,6 +87,7 @@ static int show_usage(void)
 
 int main(int argc, char **argv)
 {
+
     if (argc != 2 && argc != 8)
         return 84;
     if (argc == 2 && !strcmp("-h", argv[1]))
