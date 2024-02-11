@@ -3,7 +3,7 @@
 ## Module: B-MAT-100 (Grade: A)
 
 ## Project Description
- Vector Computation in C
+ Vector Compuation in C
 
 ### USAGE\n ./101pong x0 y0 z0 x1 y1 z1 n
 # Result: 100% (Mark: 20)
@@ -58,9 +58,10 @@
 | 4f-no incident angle 3 | PASSED |
 
 </details>
+
 ## Bonuses
-Recreation of the game 'pong' using the ncurses library in C
+The Game 'pong' using the ncurses library in C
 
 ## Tests
-A test_degrees.sh test script that test all possibles inputs values of a given ranges.
+A test_degrees.sh script that test all possibles values in input of a given range and check the degree.
 
